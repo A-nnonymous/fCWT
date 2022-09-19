@@ -40,8 +40,8 @@ elseif(WIN32)
 endif()
 
 #Use gcc version 10. If your system has a different version, please change these two lines.
-set(CMAKE_C_COMPILER "gcc-10")
-set(CMAKE_CXX_COMPILER "g++-10")
+set(CMAKE_C_COMPILER "gcc")
+set(CMAKE_CXX_COMPILER "g++")
 
 # set the project name
 project(fCWT VERSION 1.0 DESCRIPTION "Highly optimized implementation of the Continuous Wavelet Transform")
@@ -118,16 +118,16 @@ include_directories("${PROJECT_SOURCE_DIR}/src/MEX")
 find_library (
     FFTW
     NAMES fftw3f libfftw3f # what to look for
-    HINTS "${PROJECT_SOURCE_DIR}/src/fftw" # where to look
-    NO_DEFAULT_PATH # do not search system default paths
+    #HINTS "${PROJECT_SOURCE_DIR}/src/fftw" # where to look
+    #NO_DEFAULT_PATH # do not search system default paths
     REQUIRED
 )
 if(UNIX)
 	find_library (
 		FFTW_OMP
 		NAMES fftw3f_omp libfftw3f_omp # what to look for
-		HINTS "${PROJECT_SOURCE_DIR}/src/fftw" # where to look
-		NO_DEFAULT_PATH # do not search system default paths
+		#HINTS "${PROJECT_SOURCE_DIR}/src/fftw" # where to look
+		#NO_DEFAULT_PATH # do not search system default paths
 		REQUIRED
 	)
 endif()
